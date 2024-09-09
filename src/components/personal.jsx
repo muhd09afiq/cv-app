@@ -1,19 +1,35 @@
 import { useState } from "react";
 
 export default function PersonalDetails() {
-  return <InputFullName />;
-}
+  const [fullName, setFullName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
 
-function InputFullName() {
-  const [text, setText] = useState("");
+  const handleFullName = (e) => setFullName(e.target.value);
+  const handlePhoneNumber = (e) => setPhoneNumber(e.target.value);
 
-  function handleChange(e) {
-    setText(e.target.value);
-  }
+  const details = [
+    {
+      label: "Full Name:",
+      value: fullName,
+      onChange: handleFullName,
+    },
+    {
+      label: "Phone Number:",
+      value: phoneNumber,
+      onChange: handlePhoneNumber,
+    },
+  ];
 
   return (
-    <label>
-      Full Name <input value={text} onChange={handleChange} />
-    </label>
+    <>
+      <form action="">
+        {details.map((item, index) => (
+          <label key={index}>
+            {item.label}
+            <input value={item.value} onChange={item.onChange} />
+          </label>
+        ))}
+      </form>
+    </>
   );
 }
