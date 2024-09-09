@@ -43,14 +43,12 @@ export default function PersonalDetails() {
 
   return (
     <>
-      <form action="">
-        {details.map((item, index) => (
-          <label key={index}>
-            {item.label}
-            <input value={item.value} onChange={item.onChange} />
-          </label>
-        ))}
-      </form>
+      {details.map((item, index) => (
+        <label key={index}>
+          {item.label}
+          <input value={item.value} onChange={item.onChange} />
+        </label>
+      ))}
     </>
   );
 }
