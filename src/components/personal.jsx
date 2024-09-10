@@ -41,14 +41,26 @@ export default function PersonalDetails() {
     },
   ];
 
+  const formAction = function (e) {
+    e.preventDefault();
+    const personalData = {};
+    details.forEach((item, index) => {
+      personalData[index] = item.value;
+    });
+    sessionStorage.setItem("PersonalData", JSON.stringify(personalData));
+  };
+
   return (
     <>
-      {details.map((item, index) => (
-        <label key={index}>
-          {item.label}
-          <input value={item.value} onChange={item.onChange} />
-        </label>
-      ))}
+      <form action="" onSubmit={formAction}>
+        {details.map((item, index) => (
+          <label key={index}>
+            {item.label}
+            <input value={item.value} onChange={item.onChange} />
+          </label>
+        ))}
+        <button type="submit">Save</button>
+      </form>
     </>
   );
 }
