@@ -8,6 +8,9 @@ export default function Header() {
 
   const fullName = data[0];
   const phoneNumber = data[1];
+  const email = data[2];
+  const address = data[3];
+  const currentPosition = data[4];
 
   function handleUpdate() {
     const newData = sessionStorage.getItem("PersonalData");
@@ -16,9 +19,12 @@ export default function Header() {
 
   return (
     <>
+      <button onClick={handleUpdate}>Update</button>
       <p>{fullName}</p>
       <p>{phoneNumber}</p>
-      <button onClick={handleUpdate}>Update</button>
+      <p>{email}</p>
+      <p>{address}</p>
+      <p>{currentPosition}</p>
     </>
   );
 }

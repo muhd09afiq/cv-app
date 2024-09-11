@@ -64,6 +64,7 @@ export default function PersonalDetails() {
 
   return (
     <>
+      <h3>Personal Details</h3>
       <form action="" onSubmit={formAction}>
         {details.map((item, index) => (
           <label key={index}>
