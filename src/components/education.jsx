@@ -12,12 +12,12 @@ export default function EducationDetails() {
 
   const details = [
     {
-      label: "Full Name: ",
+      label: "School Name: ",
       value: schoolName,
       onChange: handleSchoolName,
     },
     {
-      label: "Phone Number: ",
+      label: "Course Name: ",
       value: courseName,
       onChange: handleCourseName,
     },
@@ -30,26 +30,26 @@ export default function EducationDetails() {
 
   //check if there already saved data and load it
   document.addEventListener("DOMContentLoaded", () => {
-    if (sessionStorage.getItem("PersonalData")) {
-      const personalData = JSON.parse(sessionStorage.getItem("PersonalData"));
-      setSchoolName(personalData[0]);
-      setCourseName(personalData[1]);
-      setGraduationDate(personalData[2]);
+    if (sessionStorage.getItem("EducationData")) {
+      const educationData = JSON.parse(sessionStorage.getItem("EducationData"));
+      setSchoolName(educationData[0]);
+      setCourseName(educationData[1]);
+      setGraduationDate(educationData[2]);
     }
   });
 
   const formAction = function (e) {
     e.preventDefault();
-    const personalData = {};
+    const educationData = {};
     details.forEach((item, index) => {
-      personalData[index] = item.value;
+      educationData[index] = item.value;
     });
-    sessionStorage.setItem("PersonalData", JSON.stringify(personalData));
+    sessionStorage.setItem("EducationData", JSON.stringify(educationData));
   };
 
   return (
     <>
-      <h3>Personal Details</h3>
+      <h3>Education Details</h3>
       <form action="" onSubmit={formAction}>
         {details.map((item, index) => (
           <label key={index}>
