@@ -41,6 +41,18 @@ export default function PersonalDetails() {
     },
   ];
 
+  //check if there already saved data and load it
+  document.addEventListener("DOMContentLoaded", () => {
+    if (sessionStorage.getItem("PersonalData")) {
+      const personalData = JSON.parse(sessionStorage.getItem("PersonalData"));
+      setFullName(personalData[0]);
+      setPhoneNumber(personalData[1]);
+      setEmail(personalData[2]);
+      setAddress(personalData[3]);
+      setCurrentPosition(personalData[4]);
+    }
+  });
+
   const formAction = function (e) {
     e.preventDefault();
     const personalData = {};
