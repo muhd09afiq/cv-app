@@ -1,7 +1,7 @@
 import { useState } from "react";
-import EducationDetails from "./education";
-import PersonalDetails from "./personal";
-import ExperienceDetails from "./work-exp";
+import EducationDetails from "./02-education";
+import PersonalDetails from "./01-personal";
+import ExperienceDetails from "./03-work-exp";
 
 export default function Form() {
   const [activeIndex, setActiveIndex] = useState(0);
