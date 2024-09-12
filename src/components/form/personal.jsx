@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function PersonalDetails() {
+export default function PersonalDetails({ isActive, showActiveHandler }) {
   const [fullName, setFullName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
@@ -65,15 +65,21 @@ export default function PersonalDetails() {
   return (
     <>
       <h3>Personal Details</h3>
-      <form action="" onSubmit={formAction}>
-        {details.map((item, index) => (
-          <label key={index}>
-            {item.label}
-            <input value={item.value} onChange={item.onChange} />
-          </label>
-        ))}
-        <button type="submit">Save</button>
-      </form>
+      {isActive ? (
+        <>
+          <form action="" onSubmit={formAction}>
+            {details.map((item, index) => (
+              <label key={index}>
+                {item.label}
+                <input value={item.value} onChange={item.onChange} />
+              </label>
+            ))}
+            <button type="submit">Save</button>
+          </form>
+        </>
+      ) : (
+        <button onClick={showActiveHandler}>Show</button>
+      )}
     </>
   );
 }
