@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function ExperienceDetails() {
+export default function ExperienceDetails({ isActive, showActiveHandler }) {
   //(company name, position title, main responsibilities of your jobs, date from and until when you worked for that company)
   const [companyName, setCompanyName] = useState("");
   const [positionTitle, setPositionTitle] = useState("");
@@ -68,15 +68,21 @@ export default function ExperienceDetails() {
   return (
     <>
       <h3>Working Experiences</h3>
-      <form action="" onSubmit={formAction}>
-        {details.map((item, index) => (
-          <label key={index}>
-            {item.label}
-            <input value={item.value} onChange={item.onChange} />
-          </label>
-        ))}
-        <button type="submit">Save</button>
-      </form>
+      {isActive ? (
+        <>
+          <form action="" onSubmit={formAction}>
+            {details.map((item, index) => (
+              <label key={index}>
+                {item.label}
+                <input value={item.value} onChange={item.onChange} />
+              </label>
+            ))}
+            <button type="submit">Save</button>
+          </form>
+        </>
+      ) : (
+        <button onClick={showActiveHandler}>Show</button>
+      )}
     </>
   );
 }

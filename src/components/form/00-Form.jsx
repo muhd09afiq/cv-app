@@ -12,8 +12,14 @@ export default function Form() {
         isActive={activeIndex === 0}
         showActiveHandler={() => setActiveIndex(0)}
       />
-      <EducationDetails />
-      <ExperienceDetails />
+      <EducationDetails
+        isActive={activeIndex === 1}
+        showActiveHandler={() => setActiveIndex(1)}
+      />
+      <ExperienceDetails
+        isActive={activeIndex === 2}
+        showActiveHandler={() => setActiveIndex(2)}
+      />
     </>
   );
 }

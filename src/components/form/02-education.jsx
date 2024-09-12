@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function EducationDetails() {
+export default function EducationDetails({ isActive, showActiveHandler }) {
   //school name, title of study and date of study)
   const [schoolName, setSchoolName] = useState("");
   const [courseName, setCourseName] = useState("");
@@ -50,15 +50,21 @@ export default function EducationDetails() {
   return (
     <>
       <h3>Education Details</h3>
-      <form action="" onSubmit={formAction}>
-        {details.map((item, index) => (
-          <label key={index}>
-            {item.label}
-            <input value={item.value} onChange={item.onChange} />
-          </label>
-        ))}
-        <button type="submit">Save</button>
-      </form>
+      {isActive ? (
+        <>
+          <form action="" onSubmit={formAction}>
+            {details.map((item, index) => (
+              <label key={index}>
+                {item.label}
+                <input value={item.value} onChange={item.onChange} />
+              </label>
+            ))}
+            <button type="submit">Save</button>
+          </form>
+        </>
+      ) : (
+        <button onClick={showActiveHandler}>Show</button>
+      )}
     </>
   );
 }
