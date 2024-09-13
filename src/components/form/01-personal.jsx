@@ -50,6 +50,13 @@ export default function PersonalDetails({ isActive, showActiveHandler }) {
       setEmail(personalData[2]);
       setAddress(personalData[3]);
       setCurrentPosition(personalData[4]);
+    } else {
+      //add blank object if no data
+      const personalData = {};
+      details.forEach((item, index) => {
+        personalData[index] = "";
+      });
+      sessionStorage.setItem("PersonalData", JSON.stringify(personalData));
     }
   });
 

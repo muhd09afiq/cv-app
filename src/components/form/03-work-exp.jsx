@@ -53,6 +53,13 @@ export default function ExperienceDetails({ isActive, showActiveHandler }) {
       setJobTask(experienceData[2]);
       setStartDate(experienceData[3]);
       setEndDate(experienceData[4]);
+    } else {
+      //add blank object if no data
+      const experienceData = {};
+      details.forEach((item, index) => {
+        experienceData[index] = "";
+      });
+      sessionStorage.setItem("ExperienceData", JSON.stringify(experienceData));
     }
   });
 

@@ -35,6 +35,13 @@ export default function EducationDetails({ isActive, showActiveHandler }) {
       setSchoolName(educationData[0]);
       setCourseName(educationData[1]);
       setGraduationDate(educationData[2]);
+    } else {
+      //add blank object if no data
+      const educationData = {};
+      details.forEach((item, index) => {
+        educationData[index] = "";
+      });
+      sessionStorage.setItem("EducationData", JSON.stringify(educationData));
     }
   });
 
