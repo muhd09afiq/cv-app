@@ -6,7 +6,11 @@ function App() {
   return (
     <>
       <Form />
-      <Header />
+      <div className="resume">
+        <div className="header">
+          <Header />
+        </div>
+      </div>
     </>
   );
 }

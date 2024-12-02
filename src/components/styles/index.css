@@ -63,3 +63,12 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.resume {
+  background-color: white;
+  color: black;
+}
+
+.header {
+  background-color: grey;
+}
